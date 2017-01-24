@@ -12,10 +12,10 @@
 -(instancetype)initWithTitle:(NSString *)title description:(NSString *)description priority:(int)priority{
     self = [super init];
     if (self){
-        self.title = title;
-        self.todoDescription = description;
-        self.priorityNumber = priority;
-        self.isCompleted = NO;
+        _title = title;
+        _todoDescription = description;
+        _priorityNumber = priority;
+        _isCompleted = NO;
     }
     return self;
 }

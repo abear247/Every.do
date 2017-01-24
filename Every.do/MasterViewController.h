@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TodoObject.h"
 #import "TodoTableViewCell.h"
+#import "AddTodoViewController.h"
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController 
 
-@property NSArray<TodoObject *>*todos;
+@property NSMutableArray<TodoObject *>*todos;
 
 @end
 

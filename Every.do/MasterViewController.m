@@ -21,14 +21,17 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     
     TodoObject *todo1 = [[TodoObject alloc] initWithTitle:@"todo1" description:@"wake up" priority:1];
     TodoObject *todo2 = [[TodoObject alloc] initWithTitle:@"todo2" description:@"shower" priority:2];
     TodoObject *todo3 = [[TodoObject alloc] initWithTitle:@"todo3" description:@"eat breakfast" priority:3];
     TodoObject *todo4 = [[TodoObject alloc] initWithTitle:@"todo4" description:@"goto work" priority:4];
-    self.todos = @[todo1,todo2,todo3,todo4];
+    [self.todos addObject:todo1];
+    [self.todos addObject:todo2];
+    [self.todos addObject:todo3];
+    [self.todos addObject:todo4];
 }
 
 
@@ -57,9 +60,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        TodoObject *todo = self.todos[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-        [controller setDetailItem:object];
+        controller.title = todo.title;
+        controller.priorityText = [NSString stringWithFormat:@"%d",todo.priorityNumber];
+        controller.todoText = todo.todoDescription;
+        [controller setDetailItem:todo];
+    }
+    if ([[segue identifier] isEqualToString:@"showAddTodo"]) {
+        AddTodoViewController *controller = (AddTodoViewController *) [segue destinationViewController];
+        TodoObject *todo = [controller addTodo:sender];
+        [self.todos addObject:todo];
+        
     }
 }
 
@@ -86,6 +98,7 @@
     
     return cell;
 }
+
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
