@@ -24,20 +24,33 @@
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
     self.todos = [NSMutableArray new];
-    TodoObject *todo1 = [[TodoObject alloc] initWithTitle:@"todo1" description:@"wake up" priority:1];
-    TodoObject *todo2 = [[TodoObject alloc] initWithTitle:@"todo2" description:@"shower" priority:2];
-    TodoObject *todo3 = [[TodoObject alloc] initWithTitle:@"todo3" description:@"eat breakfast" priority:3];
-    TodoObject *todo4 = [[TodoObject alloc] initWithTitle:@"todo4" description:@"goto work" priority:4];
+    NSMutableAttributedString * string1 = [[NSMutableAttributedString alloc] initWithString:@"todo1"];
+    NSMutableAttributedString * string2 = [[NSMutableAttributedString alloc] initWithString:@"todo2"];
+    NSMutableAttributedString * string3 = [[NSMutableAttributedString alloc] initWithString:@"todo3"];
+    NSMutableAttributedString * string4 = [[NSMutableAttributedString alloc] initWithString:@"todo4"];
+    TodoObject *todo1 = [[TodoObject alloc] initWithTitle:string1 description:@"wake up" priority:1];
+    TodoObject *todo2 = [[TodoObject alloc] initWithTitle:string2 description:@"shower" priority:2];
+    TodoObject *todo3 = [[TodoObject alloc] initWithTitle:string3 description:@"eat breakfast" priority:3];
+    TodoObject *todo4 = [[TodoObject alloc] initWithTitle:string4 description:@"goto work" priority:4];
     [self.todos addObject:todo1];
     [self.todos addObject:todo2];
     [self.todos addObject:todo3];
     [self.todos addObject:todo4];
-    
+    UISwipeGestureRecognizer *swiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(strikeOut:)];
+    [self.tableView addGestureRecognizer:swiper];
 }
-- (IBAction)crossOffLine:(id)sender {
-    TodoObject *todo = sender;
+//- (IBAction)crossOffLine:(id)sender {
+//    TodoObject *todo = sender;
+//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:todo.title];
+//    [string addAttribute:NSStrikethroughStyleAttributeName value:@1 range:NSMakeRange(0, string.length)];
+//    todo.title = string;
+//    
+//}
+
+-(void)strikeOut:(UISwipeGestureRecognizer *)sender{
+    TodoObject *todo = self.todos[0];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:todo.title];
-    [string addAttribute:NSStrikethroughStyleAttributeName value:@1 range:NSMakeRange(0, string.length)];
+    [string addAttribute:NSStrikethroughStyleAttributeName value:@2 range:NSMakeRange(0, string.length)];
     todo.title = string;
 }
 
@@ -69,7 +82,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         TodoObject *todo = self.todos[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-        controller.title = todo.title;
+        controller.title = todo.title.string;
         controller.priorityText = [NSString stringWithFormat:@"%d",todo.priorityNumber];
         controller.todoText = todo.todoDescription;
         [controller setDetailItem:todo];
@@ -103,7 +116,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TodoTableViewCell *cell = (TodoTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     TodoObject *todo = self.todos[indexPath.row];
-    [cell.title setText:todo.title];
+    
+    [cell.title setText:todo.title.string];
     [cell.preview setText:todo.todoDescription];
     [cell.priority setText:[NSString stringWithFormat:@"%d",todo.priorityNumber]];
     

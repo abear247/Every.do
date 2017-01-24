@@ -15,6 +15,6 @@
 @property int priorityNumber;
 @property bool isCompleted;
 
--(instancetype)initWithTitle:(NSString *)title description:(NSString *)description priority:(int)priority;
+-(instancetype)initWithTitle:(NSMutableAttributedString *)title description:(NSString *)description priority:(int)priority;
 
 @end

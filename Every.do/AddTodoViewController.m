@@ -30,13 +30,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)priorityStepper:(id)sender {
-    self.priority.text = [NSString stringWithFormat:@"%f",[sender stepValue]];
+- (IBAction)priorityStepper:(UIStepper *)sender {
+    int x = sender.value;
+    self.priority.text = [NSString stringWithFormat:@"%d",x];
 }
 
 
 - (IBAction)done:(id)sender {
-    TodoObject *todo = [[TodoObject alloc] initWithTitle:self.todoTitle.text description:self.todoDescription.text priority:[self.priority.text intValue]];
+      NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.todoTitle.attributedText];
+    TodoObject *todo = [[TodoObject alloc] initWithTitle:string description:self.todoDescription.text priority:[self.priority.text intValue]];
     self.addNewTodo(todo);
     
     [self dismissViewControllerAnimated:YES

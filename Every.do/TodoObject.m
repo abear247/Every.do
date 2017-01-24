@@ -9,7 +9,7 @@
 #import "TodoObject.h"
 
 @implementation TodoObject
--(instancetype)initWithTitle:(NSString *)title description:(NSString *)description priority:(int)priority{
+-(instancetype)initWithTitle:(NSMutableAttributedString *)title description:(NSString *)description priority:(int)priority{
     self = [super init];
     if (self){
         _title = title;
