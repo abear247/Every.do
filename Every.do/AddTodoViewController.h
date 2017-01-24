@@ -11,14 +11,11 @@
 
 
 
-
 @interface AddTodoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *todoTitle;
 @property (weak, nonatomic) IBOutlet UILabel *priority;
 @property (weak, nonatomic) IBOutlet UITextField *todoDescription;
 @property (nonatomic) TodoObject *todo;
-@property (copy) void(^addNewTodo)(TodoObject *todo);
-
--(TodoObject *)addTodo:(id)sender;
+@property (nonatomic,copy) void (^addNewTodo)(TodoObject *todo);
 
 @end

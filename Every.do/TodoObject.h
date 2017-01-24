@@ -10,7 +10,7 @@
 
 @interface TodoObject : NSObject 
 
-@property NSString *title;
+@property NSMutableAttributedString *title;
 @property (nonatomic,readwrite) NSString *todoDescription;
 @property int priorityNumber;
 @property bool isCompleted;

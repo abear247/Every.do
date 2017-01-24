@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.todoTitle.text = @"todo5";
+    self.todoDescription.text = @"new";
+    
     
 }
 
@@ -33,9 +36,9 @@
 
 
 - (IBAction)done:(id)sender {
-    TodoObject *todo = [[TodoObject alloc] initWithTitle:self.todoTitle.text description:self.description priority:[self.priority.text intValue]];
-
+    TodoObject *todo = [[TodoObject alloc] initWithTitle:self.todoTitle.text description:self.todoDescription.text priority:[self.priority.text intValue]];
     self.addNewTodo(todo);
+    
     [self dismissViewControllerAnimated:YES
                              completion:nil];
 }

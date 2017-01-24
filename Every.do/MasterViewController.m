@@ -32,6 +32,13 @@
     [self.todos addObject:todo2];
     [self.todos addObject:todo3];
     [self.todos addObject:todo4];
+    
+}
+- (IBAction)crossOffLine:(id)sender {
+    TodoObject *todo = sender;
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:todo.title];
+    [string addAttribute:NSStrikethroughStyleAttributeName value:@1 range:NSMakeRange(0, string.length)];
+    todo.title = string;
 }
 
 
@@ -69,8 +76,11 @@
     }
     if ([[segue identifier] isEqualToString:@"showAddTodo"]) {
         AddTodoViewController *controller = (AddTodoViewController *) [segue destinationViewController];
-        controller.addNewTodo = self.callback;
-     //   [self.todos addObject:todo];
+        controller.addNewTodo = ^(TodoObject* todo){
+            [self.todos addObject:todo];
+            [self.tableView reloadData];
+        };
+       
         
         
     }
