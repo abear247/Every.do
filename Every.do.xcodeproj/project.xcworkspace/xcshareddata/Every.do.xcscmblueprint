@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FAE4616DA045C42777669D57181FE6F5EF3AEA2B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FAE4616DA045C42777669D57181FE6F5EF3AEA2B" : 9223372036854775807,
+    "3B254D99F8C971C11F04DE1004DE22FB9C2EB74D" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E13B05DA-03FA-422F-8DC3-BF9EF7174F82",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FAE4616DA045C42777669D57181FE6F5EF3AEA2B" : "Every.do\/",
+    "3B254D99F8C971C11F04DE1004DE22FB9C2EB74D" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Every.do",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Every.do.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/abear247\/Patient-Doctor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3B254D99F8C971C11F04DE1004DE22FB9C2EB74D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/abear247\/Every.do.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FAE4616DA045C42777669D57181FE6F5EF3AEA2B"
+    }
+  ]
+}

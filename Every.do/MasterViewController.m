@@ -23,6 +23,12 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    TodoObject *todo1 = [[TodoObject alloc] initWithTitle:@"todo1" description:@"wake up" priority:1];
+    TodoObject *todo2 = [[TodoObject alloc] initWithTitle:@"todo2" description:@"shower" priority:2];
+    TodoObject *todo3 = [[TodoObject alloc] initWithTitle:@"todo3" description:@"eat breakfast" priority:3];
+    TodoObject *todo4 = [[TodoObject alloc] initWithTitle:@"todo4" description:@"goto work" priority:4];
+    self.todos = @[todo1,todo2,todo3,todo4];
 }
 
 
@@ -66,15 +72,18 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.todos.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    TodoTableViewCell *cell = (TodoTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    TodoObject *todo = self.todos[indexPath.row];
+    [cell.title setText:todo.title];
+    [cell.preview setText:todo.todoDescription];
+    [cell.priority setText:[NSString stringWithFormat:@"%d",todo.priorityNumber]];
+    
+    
     return cell;
 }
 

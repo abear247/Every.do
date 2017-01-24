@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TodoObject.h"
+#import "TodoTableViewCell.h"
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
 
+@property NSArray<TodoObject *>*todos;
 
 @end
 
