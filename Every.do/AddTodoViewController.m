@@ -8,7 +8,9 @@
 
 #import "AddTodoViewController.h"
 
+
 @interface AddTodoViewController ()
+
 
 @end
 
@@ -25,9 +27,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)priorityStepper:(id)sender {
+    self.priority.text = [NSString stringWithFormat:@"%f",[sender stepValue]];
+}
 
--(TodoObject *)addTodo:(id)sender{
-    
+
+- (IBAction)done:(id)sender {
+    TodoObject *todo = [[TodoObject alloc] initWithTitle:self.todoTitle.text description:self.description priority:[self.priority.text intValue]];
+
+    self.addNewTodo(todo);
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 

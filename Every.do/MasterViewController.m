@@ -23,7 +23,7 @@
 
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
-    
+    self.todos = [NSMutableArray new];
     TodoObject *todo1 = [[TodoObject alloc] initWithTitle:@"todo1" description:@"wake up" priority:1];
     TodoObject *todo2 = [[TodoObject alloc] initWithTitle:@"todo2" description:@"shower" priority:2];
     TodoObject *todo3 = [[TodoObject alloc] initWithTitle:@"todo3" description:@"eat breakfast" priority:3];
@@ -69,11 +69,13 @@
     }
     if ([[segue identifier] isEqualToString:@"showAddTodo"]) {
         AddTodoViewController *controller = (AddTodoViewController *) [segue destinationViewController];
-        TodoObject *todo = [controller addTodo:sender];
-        [self.todos addObject:todo];
+        controller.addNewTodo = self.callback;
+     //   [self.todos addObject:todo];
+        
         
     }
 }
+
 
 
 #pragma mark - Table View

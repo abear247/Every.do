@@ -10,12 +10,14 @@
 #import "TodoObject.h"
 #import "TodoTableViewCell.h"
 #import "AddTodoViewController.h"
+typedef void (^addNewTodo)(TodoObject* todo);
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController 
 
 @property NSMutableArray<TodoObject *>*todos;
+@property (nonatomic)addNewTodo callback;
 
 @end
 
