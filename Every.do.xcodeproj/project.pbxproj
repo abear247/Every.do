@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C84A30111E42775900B71500 /* CoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C84A30101E42775900B71500 /* CoreManager.m */; };
+		C84A30141E427E0B00B71500 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C84A30121E427E0B00B71500 /* Model.xcdatamodeld */; };
 		C8DFBEA41E37AC750098BE2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DFBEA31E37AC750098BE2B /* main.m */; };
 		C8DFBEA71E37AC750098BE2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DFBEA61E37AC750098BE2B /* AppDelegate.m */; };
 		C8DFBEAA1E37AC750098BE2B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DFBEA91E37AC750098BE2B /* MasterViewController.m */; };
@@ -39,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C84A300F1E42775900B71500 /* CoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreManager.h; sourceTree = "<group>"; };
+		C84A30101E42775900B71500 /* CoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreManager.m; sourceTree = "<group>"; };
+		C84A30131E427E0B00B71500 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C84A301F1E42824200B71500 /* Todo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+CoreDataClass.h"; sourceTree = "<group>"; };
+		C84A30201E42824200B71500 /* Todo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+CoreDataClass.m"; sourceTree = "<group>"; };
+		C84A30211E42824200B71500 /* Todo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C84A30221E42824200B71500 /* Todo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C8DFBE9F1E37AC750098BE2B /* Every.do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Every.do.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DFBEA31E37AC750098BE2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C8DFBEA51E37AC750098BE2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,6 +102,10 @@
 		C8DFBE961E37AC750098BE2B = {
 			isa = PBXGroup;
 			children = (
+				C84A301F1E42824200B71500 /* Todo+CoreDataClass.h */,
+				C84A30201E42824200B71500 /* Todo+CoreDataClass.m */,
+				C84A30211E42824200B71500 /* Todo+CoreDataProperties.h */,
+				C84A30221E42824200B71500 /* Todo+CoreDataProperties.m */,
 				C8DFBEA11E37AC750098BE2B /* Every.do */,
 				C8DFBEBE1E37AC760098BE2B /* Every.doTests */,
 				C8DFBEC91E37AC760098BE2B /* Every.doUITests */,
@@ -123,6 +136,8 @@
 				C8DFBEDF1E37CBE70098BE2B /* AddTodoViewController.m */,
 				C8DFBEDB1E37AF860098BE2B /* TodoTableViewCell.h */,
 				C8DFBEDC1E37AF860098BE2B /* TodoTableViewCell.m */,
+				C84A300F1E42775900B71500 /* CoreManager.h */,
+				C84A30101E42775900B71500 /* CoreManager.m */,
 				C8DFBED81E37ACDE0098BE2B /* TodoObject.h */,
 				C8DFBED91E37ACDE0098BE2B /* TodoObject.m */,
 				C8DFBEAE1E37AC750098BE2B /* Main.storyboard */,
@@ -130,6 +145,7 @@
 				C8DFBEB31E37AC750098BE2B /* LaunchScreen.storyboard */,
 				C8DFBEB61E37AC750098BE2B /* Info.plist */,
 				C8DFBEA21E37AC750098BE2B /* Supporting Files */,
+				C84A30121E427E0B00B71500 /* Model.xcdatamodeld */,
 			);
 			path = Every.do;
 			sourceTree = "<group>";
@@ -227,6 +243,7 @@
 				TargetAttributes = {
 					C8DFBE9E1E37AC750098BE2B = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					C8DFBEBA1E37AC760098BE2B = {
@@ -297,6 +314,8 @@
 				C8DFBEDD1E37AF860098BE2B /* TodoTableViewCell.m in Sources */,
 				C8DFBEE01E37CBE70098BE2B /* AddTodoViewController.m in Sources */,
 				C8DFBEAA1E37AC750098BE2B /* MasterViewController.m in Sources */,
+				C84A30111E42775900B71500 /* CoreManager.m in Sources */,
+				C84A30141E427E0B00B71500 /* Model.xcdatamodeld in Sources */,
 				C8DFBEDA1E37ACDE0098BE2B /* TodoObject.m in Sources */,
 				C8DFBEA41E37AC750098BE2B /* main.m in Sources */,
 				C8DFBEAD1E37AC750098BE2B /* DetailViewController.m in Sources */,
@@ -446,10 +465,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Every.do/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "alexbearinger.Every-do";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -457,10 +479,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Every.do/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "alexbearinger.Every-do";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -529,6 +553,7 @@
 				C8DFBED11E37AC760098BE2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8DFBED21E37AC760098BE2B /* Build configuration list for PBXNativeTarget "Every.doTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +562,7 @@
 				C8DFBED41E37AC760098BE2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8DFBED51E37AC760098BE2B /* Build configuration list for PBXNativeTarget "Every.doUITests" */ = {
 			isa = XCConfigurationList;
@@ -545,8 +571,22 @@
 				C8DFBED71E37AC760098BE2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C84A30121E427E0B00B71500 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C84A30131E427E0B00B71500 /* Model.xcdatamodel */,
+			);
+			currentVersion = C84A30131E427E0B00B71500 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C8DFBE971E37AC750098BE2B /* Project object */;
 }

@@ -48,10 +48,12 @@
 //}
 
 -(void)strikeOut:(UISwipeGestureRecognizer *)sender{
+    CGPoint swipe = [sender locationInView:self.tableView];
     TodoObject *todo = self.todos[0];
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:todo.title];
     [string addAttribute:NSStrikethroughStyleAttributeName value:@2 range:NSMakeRange(0, string.length)];
     todo.title = string;
+    [self.tableView reloadData];
 }
 
 
@@ -117,7 +119,7 @@
     TodoTableViewCell *cell = (TodoTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     TodoObject *todo = self.todos[indexPath.row];
     
-    [cell.title setText:todo.title.string];
+    cell.title.attributedText = todo.title;
     [cell.preview setText:todo.todoDescription];
     [cell.priority setText:[NSString stringWithFormat:@"%d",todo.priorityNumber]];
     
