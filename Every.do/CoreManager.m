@@ -7,6 +7,7 @@
 //
 
 #import "CoreManager.h"
+//#import "Model+CoreDataModel.h"
 
 @implementation CoreManager
 +(id)coreManager{
@@ -21,7 +22,7 @@
 
 -(id)init{
     if (self = [super init]){
-        
+     //   [self persistentContainer];
     }
     return self;
 }
@@ -33,7 +34,7 @@
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Every_doAgain"];
+            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"Model"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
                     // Replace this implementation with code to handle the error appropriately.
@@ -55,5 +56,16 @@
     }
     
     return _persistentContainer;
+}
+
+-(void)saveContext{
+    NSManagedObjectContext *context = self.persistentContainer.viewContext;
+    NSError *error = nil;
+    if ([context hasChanges] && ![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        abort();
+    }
 }
 @end

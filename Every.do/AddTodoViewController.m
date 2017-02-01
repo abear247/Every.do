@@ -38,8 +38,10 @@
 
 - (IBAction)done:(id)sender {
       NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithAttributedString:self.todoTitle.attributedText];
-    TodoObject *todo = [[TodoObject alloc] initWithTitle:string description:self.todoDescription.text priority:[self.priority.text intValue]];
-    self.addNewTodo(todo);
+    self.todo.title = [string string];
+    self.todo.todoDescription = self.todoDescription.text;
+    self.todo.priority = [self.priority.text intValue];
+    self.addNewTodo(self.todo);
     
     [self dismissViewControllerAnimated:YES
                              completion:nil];

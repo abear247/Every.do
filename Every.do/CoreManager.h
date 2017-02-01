@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Model+CoreDataModel.h"
+#import "Todo+CoreDataProperties.h"
+//@class Todo;
 
 @interface CoreManager : NSObject <NSFetchedResultsControllerDelegate>
 @property (readonly, strong) NSPersistentContainer *persistentContainer;

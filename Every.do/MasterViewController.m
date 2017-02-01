@@ -8,9 +8,11 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "Todo+CoreDataProperties.h"
+#import "CoreManager.h"
 
 @interface MasterViewController ()
-
+@property CoreManager *manager;
 @property NSMutableArray *objects;
 @end
 
@@ -23,19 +25,20 @@
 
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
+    self.manager = [CoreManager coreManager];
     self.todos = [NSMutableArray new];
-    NSMutableAttributedString * string1 = [[NSMutableAttributedString alloc] initWithString:@"todo1"];
-    NSMutableAttributedString * string2 = [[NSMutableAttributedString alloc] initWithString:@"todo2"];
-    NSMutableAttributedString * string3 = [[NSMutableAttributedString alloc] initWithString:@"todo3"];
-    NSMutableAttributedString * string4 = [[NSMutableAttributedString alloc] initWithString:@"todo4"];
-    TodoObject *todo1 = [[TodoObject alloc] initWithTitle:string1 description:@"wake up" priority:1];
-    TodoObject *todo2 = [[TodoObject alloc] initWithTitle:string2 description:@"shower" priority:2];
-    TodoObject *todo3 = [[TodoObject alloc] initWithTitle:string3 description:@"eat breakfast" priority:3];
-    TodoObject *todo4 = [[TodoObject alloc] initWithTitle:string4 description:@"goto work" priority:4];
-    [self.todos addObject:todo1];
-    [self.todos addObject:todo2];
-    [self.todos addObject:todo3];
-    [self.todos addObject:todo4];
+//    NSMutableAttributedString * string1 = [[NSMutableAttributedString alloc] initWithString:@"todo1"];
+//    NSMutableAttributedString * string2 = [[NSMutableAttributedString alloc] initWithString:@"todo2"];
+//    NSMutableAttributedString * string3 = [[NSMutableAttributedString alloc] initWithString:@"todo3"];
+//    NSMutableAttributedString * string4 = [[NSMutableAttributedString alloc] initWithString:@"todo4"];
+//    TodoObject *todo1 = [[TodoObject alloc] initWithTitle:string1 description:@"wake up" priority:1];
+//    TodoObject *todo2 = [[TodoObject alloc] initWithTitle:string2 description:@"shower" priority:2];
+//    TodoObject *todo3 = [[TodoObject alloc] initWithTitle:string3 description:@"eat breakfast" priority:3];
+//    TodoObject *todo4 = [[TodoObject alloc] initWithTitle:string4 description:@"goto work" priority:4];
+//    [self.todos addObject:todo1];
+//    [self.todos addObject:todo2];
+//    [self.todos addObject:todo3];
+//    [self.todos addObject:todo4];
     UISwipeGestureRecognizer *swiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(strikeOut:)];
     [self.tableView addGestureRecognizer:swiper];
 }
@@ -91,8 +94,11 @@
     }
     if ([[segue identifier] isEqualToString:@"showAddTodo"]) {
         AddTodoViewController *controller = (AddTodoViewController *) [segue destinationViewController];
-        controller.addNewTodo = ^(TodoObject* todo){
-            [self.todos addObject:todo];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Todo" inManagedObjectContext:self.manager.persistentContainer.viewContext];
+        Todo *todo = [[Todo alloc] initWithEntity:entity insertIntoManagedObjectContext:self.manager.persistentContainer.viewContext];
+        controller.todo = todo;
+        controller.addNewTodo = ^(Todo* todo){
+     //       [self.todos addObject:todo];
             [self.tableView reloadData];
         };
        
